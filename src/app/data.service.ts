@@ -10,9 +10,16 @@ export class DataService {
 
   constructor(private http: HttpClient) { }
 
-  getShowData(showName: string) {
+  getShowData(showName: string, season: string) {
     const formattedShowName = showName.toLocaleLowerCase().trim().replace(/\s+/g, '-');
-    const url = `${this.cdnUrl}/${formattedShowName}.json`;
+    let url;
+
+    if (season) {
+      url = `${this.cdnUrl}/${formattedShowName}-${season}.json`;
+    } else {
+      url = `${this.cdnUrl}/${formattedShowName}.json`;
+    }
+
     console.log('Getting data from', url);
     return this.http.get(url);
   }

@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from './data.service';
 
+interface DataModel {
+  showName: string;
+  season: string;
+}
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -10,13 +15,17 @@ export class AppComponent {
   showData: any;
   loading: boolean;
   errorMsg: string;
+  model: DataModel = {
+    showName: '',
+    season: '',
+  };
 
   constructor(private dataService: DataService) {}
 
-  getShowData(showName) {
+  getShowData() {
     this.loading = true;
     this.errorMsg = '';
-    this.dataService.getShowData(showName.value)
+    this.dataService.getShowData(this.model.showName, this.model.season)
       .subscribe(
         (response) => {
           this.showData = response;

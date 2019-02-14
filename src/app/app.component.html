@@ -5,11 +5,19 @@
 </div>
 
 <div>
-  <form (ngSubmit)="getShowData(showName)">
-    <label>
-      Enter the show name:
-    </label>
-    <input #showName type="text" name="showName" required>
+  <form (ngSubmit)="getShowData()">
+    <div>
+        <label>
+          Enter the show name:
+        </label>
+        <input type="text" name="showName" [(ngModel)]="model.showName" required>
+    </div>
+    <div>
+        <label>
+          Enter the season number:
+        </label>
+        <input type="text" name="season" [(ngModel)]="model.season" required>
+    </div>
     <button type="submit">Get video links</button>
   </form>
 </div>
