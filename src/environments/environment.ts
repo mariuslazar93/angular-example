@@ -3,7 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  cdnUrl: 'https://d2yuu33q9f2wq7.cloudfront.net'
 };
 
 /*

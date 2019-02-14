@@ -6,24 +6,20 @@ import { DataService } from './data.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
-  title = 'Listing app';
-  data: any;
+export class AppComponent {
+  showData: any;
   loading: boolean;
   errorMsg: string;
 
   constructor(private dataService: DataService) {}
 
-  ngOnInit() {
-    this.getData();
-  }
-
-  getData() {
-    const url = 'https://jsonplaceholder.typicode.com/todos';
-    this.dataService.getData(url)
+  getShowData(showName) {
+    this.loading = true;
+    this.errorMsg = '';
+    this.dataService.getShowData(showName.value)
       .subscribe(
         (response) => {
-          this.data = response;
+          this.showData = response;
           this.loading = false;
         },
         (error) => {
@@ -31,6 +27,6 @@ export class AppComponent implements OnInit {
           this.errorMsg = error.message;
           this.loading = false;
         },
-      )
+      );
   }
 }

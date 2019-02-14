@@ -1,17 +1,27 @@
-<div style="text-align:center">
+<div class="text-center">
   <h1>
-    Welcome to {{ title }}!
+    Welcome to FSO listing app!
   </h1>
+</div>
+
+<div>
+  <form (ngSubmit)="getShowData(showName)">
+    <label>
+      Enter the show name:
+    </label>
+    <input #showName type="text" name="showName" required>
+    <button type="submit">Get video links</button>
+  </form>
 </div>
 
 <p *ngIf="loading">Loading...</p>
 <p *ngIf="errorMsg">Something went wrong... {{ errorMsg }}</p>
 
-<div *ngIf="!loading && !errorMsg">
+<div *ngIf="!loading && !errorMsg && showData">
   <h2>List of links: </h2>
   <ul>
-    <li *ngFor="let item of data">
-      <a [href]="item.title" >{{ item.title }}</a>
+    <li *ngFor="let item of showData">
+      <a [href]="item?.videoSrc">{{ item?.title }}</a>
     </li>
   </ul>
 </div>
