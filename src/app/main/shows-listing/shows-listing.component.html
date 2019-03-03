@@ -1,0 +1,30 @@
+<mat-spinner *ngIf="loading"></mat-spinner>
+<ng-container *ngIf="!loading">
+  <h1>Show listing</h1>
+  <mat-card *ngIf="error">
+    <mat-card-title>
+      Oops, something went wrong...
+    </mat-card-title>
+    <mat-card-content>
+      <p>
+        {{ error.message }}
+      </p>
+    </mat-card-content>
+  </mat-card>
+  <ng-container *ngIf="!error">
+    <p *ngIf="!shows.length">There are no available shows.</p>
+    <mat-card *ngIf="shows.length">
+      <mat-card-content>
+        <mat-list>
+          <ng-container *ngFor="let show of shows; last as last">
+            <a mat-list-item [routerLink]="show.name">
+              <img matListAvatar [src]="show.iconUrl" [alt]="show.displayName" />
+              <p matLine>{{ show.displayName }}</p>
+            </a>
+            <mat-divider *ngIf="!last" [inset]="true" class="p-y-s"></mat-divider>
+          </ng-container>
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+  </ng-container>
+</ng-container>

@@ -1,0 +1,30 @@
+<mat-spinner *ngIf="loading"></mat-spinner>
+<ng-container *ngIf="!loading">
+  <mat-card *ngIf="error">
+    <mat-card-title>
+      Oops, something went wrong...
+    </mat-card-title>
+    <mat-card-content>
+      <p>
+        {{ error.message }}
+      </p>
+    </mat-card-content>
+  </mat-card>
+  <ng-container *ngIf="!error">
+    <h1>{{ show.name }}</h1>
+    <mat-card *ngFor="let season of show.seasons">
+      <mat-card-header>
+        <mat-card-title>
+          {{ season.name }}
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-list>
+          <a mat-list-item [href]="episode.videoSrc" *ngFor="let episode of season.episodes">{{
+            episode.title
+          }}</a>
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+  </ng-container>
+</ng-container>

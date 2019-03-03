@@ -2,3 +2,20 @@
 .text-center {
   text-align: center;
 }
+
+html, body { height: 100%; }
+body { margin: 0; padding:0; font-family: Roboto, sans-serif; }
+
+
+.main-container {
+  max-width: 75%;
+  margin: 0 auto;
+}
+
+.flex-spacer {
+  flex: 1 1 auto;
+}
+
+.m-b-m {
+  margin-bottom: 2rem;
+}

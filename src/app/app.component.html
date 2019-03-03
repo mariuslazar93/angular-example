@@ -1,35 +1,8 @@
-<div class="text-center">
-  <h1>
-    Welcome to FSO listing app!
-  </h1>
-</div>
-
-<div>
-  <form (ngSubmit)="getShowData()">
-    <div>
-        <label>
-          Enter the show name:
-        </label>
-        <input type="text" name="showName" [(ngModel)]="model.showName" required>
-    </div>
-    <div>
-        <label>
-          Enter the season number:
-        </label>
-        <input type="text" name="season" [(ngModel)]="model.season" required>
-    </div>
-    <button type="submit">Get video links</button>
-  </form>
-</div>
-
-<p *ngIf="loading">Loading...</p>
-<p *ngIf="errorMsg">Something went wrong... {{ errorMsg }}</p>
-
-<div *ngIf="!loading && !errorMsg && showData">
-  <h2>List of links: </h2>
-  <ul>
-    <li *ngFor="let item of showData">
-      <a [href]="item?.videoSrc">{{ item?.title }}</a>
-    </li>
-  </ul>
-</div>
+<mat-toolbar color="primary" class="m-b-m">
+  <a mat-button routerLink="/">FSO Listing</a>
+  <div class="flex-spacer"></div>
+  <a href="https://github.com/mariuslazar93/fso-listing" mat-flat-button color="accent">Github</a>
+</mat-toolbar>
+<main class="main-container">
+  <router-outlet></router-outlet>
+</main>

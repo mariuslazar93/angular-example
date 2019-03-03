@@ -1,4 +1,6 @@
-# AngularExample
+# FSO Listing
+
+A listing site for TV shows. Live at https://d2yuu33q9f2wq7.cloudfront.net
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.1.
 
