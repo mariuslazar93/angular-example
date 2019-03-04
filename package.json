@@ -1,5 +1,6 @@
 {
   "name": "fso-listing",
+  "description": "A TV show listing site",
   "version": "1.0.0",
   "scripts": {
     "ng": "ng",
@@ -9,11 +10,15 @@
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
-  "author": {
-    "name": "Marius Lazar",
-    "email": "mariuslazar93@gmail.com"
-  },
+  "author": "Marius Lazar <mariuslazar93@gmail.com> (https://www.github.com/mariuslazar93)",
   "license": "MIT",
+  "engines": {
+    "node": ">=8"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mariuslazar93/fso-listing"
+  },
   "dependencies": {
     "@angular/animations": "~7.2.0",
     "@angular/cdk": "~7.3.3",
